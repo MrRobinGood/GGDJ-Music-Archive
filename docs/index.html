@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GG DJ Music Archive · Robin Good</title>
+<link rel="canonical" href="https://robingood.com/music/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="description" content="All the Spotify playlists made by GG DJ (Robin Good) since 2020: deep house, funk, disco, chillout and more.">
+<meta property="og:title" content="GG DJ Music Archive · Robin Good">
+<meta property="og:url" content="https://robingood.com/music/">
+<meta property="og:description" content="Deep house, funk, disco, chillout and more. All the Spotify playlists made by GG DJ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F7F4EE;--card:#fff;--ink:#1D1B18;--soft:#4A453E;--mute:#6B645A;--line:#E6DFD3;--accent:#A8481F;--wood:#2A2420;--wood2:#4A3E35;--cream:#F3EEE6}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 'Source Serif 4',Georgia,serif;overflow-x:clip}
+a{color:var(--accent)}
+.sans{font-family:'Inter Tight',system-ui,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:0 max(4vw,16px)}
+header.top{padding:48px 0 8px}
+h1{font:800 clamp(34px,5vw,52px)/1.05 'Inter Tight',sans-serif;letter-spacing:-.02em;margin:0 0 14px}
+.intro{font-size:19px;color:var(--soft);max-width:740px;margin:0}
+.search{display:flex;flex-direction:column;gap:6px;margin:22px 0 0;max-width:540px}
+.search span{font:500 13px 'Inter Tight',sans-serif;color:var(--mute)}
+.search input{font:inherit;font-size:17px;padding:14px 16px;border:1px solid #DDD5C8;border-radius:10px;background:#fff}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.label{font:700 14px 'Inter Tight',sans-serif;letter-spacing:.06em;color:var(--accent);margin:0 0 14px}
+section{padding:36px 0 8px}
+.cover{position:relative;aspect-ratio:1;border-radius:6px;overflow:hidden;background:#222}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.cover.mosaic{display:grid;grid-template-columns:1fr 1fr}
+.cover.mosaic img{aspect-ratio:1}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .15s}
+.card:hover{transform:translateY(-2px)}
+.card .cv{padding:10px 10px 0}
+.card .tx{padding:12px 14px 16px;display:flex;flex-direction:column;gap:5px}
+.meta{font:500 12px 'Inter Tight',sans-serif;color:var(--mute)}
+.ttl{font:700 16px/1.25 'Inter Tight',sans-serif}
+.dsc{font-size:14px;line-height:1.45;color:var(--soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.chip{align-self:flex-start;font:500 11px 'Inter Tight',sans-serif;padding:3px 9px;border:1px solid #E2B9A4;color:#8E3C19;border-radius:20px}
+.top5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+@media(max-width:900px){.top5{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.top5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.crates{background:var(--wood);color:var(--cream);margin-top:36px;padding:44px 0 30px}
+.crates .label{color:#E7A27C}
+.crates h2{font:800 clamp(28px,4vw,40px)/1.05 'Inter Tight',sans-serif;margin:0 0 8px}
+.crates p.sub{color:#CFC6B8;margin:0 0 26px;max-width:680px}
+.shelf{margin-bottom:30px}
+.shelf-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:12px}
+.shelf-h h3{font:800 22px 'Inter Tight',sans-serif;margin:0}
+.shelf-h span{font:500 14px 'Inter Tight',sans-serif;color:#B3A998}
+.rowwrap{position:relative}
+.row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;border-bottom:10px solid var(--wood2);scrollbar-width:thin}
+.row a{flex:0 0 150px;scroll-snap-align:start;color:inherit;text-decoration:none;display:flex;flex-direction:column;gap:6px}
+.row a .meta{color:#CFC6B8}
+.row a:focus-visible,.card:focus-visible,button:focus-visible{outline:2px solid #E7A27C;outline-offset:2px}
+.nav{position:absolute;top:58px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(243,238,230,.92);color:var(--wood);font:700 18px 'Inter Tight',sans-serif;cursor:pointer}
+.nav.l{left:-8px}.nav.r{right:-8px}
+@media(max-width:700px){.nav{display:none}}
+.tabs{display:flex;flex-wrap:wrap;gap:6px 26px;border-bottom:1px solid #DDD5C8;margin-bottom:18px}
+.tabs button{background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-1px;padding:8px 0 12px;text-align:left;cursor:pointer;color:var(--ink);opacity:.6}
+.tabs button[aria-selected=true]{border-color:var(--accent);opacity:1}
+.tabs b{display:block;font:700 20px 'Inter Tight',sans-serif}
+.tabs small{font:500 13px 'Inter Tight',sans-serif;color:var(--mute)}
+.groups{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media(max-width:900px){.groups{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.group{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:left;cursor:pointer;color:inherit;display:flex;flex-direction:column;gap:10px;font:inherit}
+.group[aria-pressed=true]{border:2px solid var(--accent);padding:11px}
+.group .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.group b{font:700 18px 'Inter Tight',sans-serif}
+.listhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px;margin:30px 0 16px}
+.listhead h2{font:800 28px 'Inter Tight',sans-serif;margin:0}
+.btn{font:500 14px 'Inter Tight',sans-serif;background:none;border:1px solid #DDD5C8;border-radius:20px;padding:8px 16px;cursor:pointer;color:var(--ink);text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
+.empty{color:var(--mute);font-style:italic}
+footer{border-top:1px solid #DDD5C8;margin-top:48px;padding:20px 0 40px;font:500 13px 'Inter Tight',sans-serif;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.sitebar{background:#fff;border-bottom:1px solid var(--line)}
+.sitebar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 28px;padding-top:14px;padding-bottom:14px}
+.sitebar img{height:34px;width:auto;display:block}
+.sitebar nav{display:flex;flex-wrap:wrap;gap:6px 22px;font:500 15px 'Inter Tight',sans-serif}
+.sitebar nav a{color:var(--ink);text-decoration:none;padding:6px 0}
+.sitebar nav a[aria-current]{color:var(--accent);border-bottom:2px solid var(--accent)}
+.pl .sitebar{background:#141311;border-color:#2a2724}.pl .sitebar nav a{color:var(--cream)}
+
+header.top{padding:26px 0 4px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 32px}
+header.top h1{font-size:clamp(30px,4vw,42px);margin:0 0 6px}
+header.top .intro{font-size:17px;margin:0}
+.search{margin:0;flex:0 1 420px}
+.sitebar .wrap{padding-top:10px;padding-bottom:10px}
+.sitebar img{height:28px}
+section{padding:22px 0 6px}
+.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+.strip .card{flex:0 0 210px;scroll-snap-align:start}
+.shelf{margin-bottom:52px}
+.shelf:last-child{margin-bottom:10px}
+.crates{margin-top:30px}
+.picked{margin-top:22px}
+/* playlist page */
+.pl{background:#141311;color:var(--cream);min-height:100vh}
+.pl .back{color:#E7A27C;font:700 15px 'Inter Tight',sans-serif;text-decoration:none}
+.pl-top{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start;padding:28px 0 36px}
+.pl-cv{flex:0 1 380px;min-width:240px}
+.pl-tx{flex:1 1 440px;display:flex;flex-direction:column;gap:14px}
+.pl-tx h1{color:#fff}
+.pl-tx .meta{color:#B3A998;font-size:14px}
+.pl-tx p{color:#CFC6B8;font-size:19px;margin:0}
+.pl-tx .chip{border-color:#4A463F;color:var(--cream)}
+.player{width:100%;height:352px;border:0;border-radius:12px}
+.quote{border-left:0;margin:6px 0 0;padding:18px 20px;background:#1E1C19;border-radius:12px;font-style:italic;color:#E9E2D6}
+.pl h2{font:800 22px 'Inter Tight',sans-serif;margin:0 0 14px}
+.near{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;padding-bottom:60px}
+@media(max-width:900px){.near{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.near a{color:inherit;text-decoration:none;display:flex;flex-direction:column;gap:6px}
+.near .meta{color:#B3A998}
+.surprise{background:#E7A27C;color:#141311;border:none;border-radius:24px;padding:12px 20px;font:700 15px 'Inter Tight',sans-serif;cursor:pointer}
+/* list page */
+table{width:100%;border-collapse:collapse;font:14px 'Inter Tight',sans-serif;background:#fff}
+th{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line)}
+th button{background:none;border:none;font:700 13px 'Inter Tight',sans-serif;color:var(--mute);cursor:pointer;padding:6px 0}
+th button[aria-sort]{color:var(--accent)}
+td{padding:6px 10px;border-bottom:1px solid #F0EBE2;color:var(--soft)}
+td.n{text-align:right;white-space:nowrap}
+td a{color:var(--ink);font-weight:700;text-decoration:none}
+.tbox{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.thumb{width:40px}
+@media(prefers-reduced-motion:reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="application/json" id="data">[{"id":"3wqVPfxGsTyZBZNbOcim5d","title":"Pepe Carranza","series":"Live sets","style":"House","place":"Salma","songs":71,"saves":0,"date":"May 2024","sort":202405,"num":0,"desc":"All the tracks played Wed May 22nd at Salma by GG DJ","big":"https://i.scdn.co/image/ab67706c0000bebb3f2079d5994856701fcc1c5c"},{"id":"5luiXwnKxCezyQHwLu2i8L","title":"SantoDomingo","series":"Singles","style":"House","place":"Santo Domingo","songs":47,"saves":1,"date":"Mar 2024","sort":202403,"num":0,"desc":"Deep, funky, soulful and good classic house. From chill to dance. Marzo 2024","big":""},{"id":"2TLwdFzpLpE4Pq1ZRhPExR","title":"Love Epiphany","series":"Singles","style":"Soul, Jazz & Soulful House","place":"","songs":55,"saves":4,"date":"Jan 2024","sort":202401,"num":0,"desc":"Soulful house - old R&B classics to deep and dance house grooves.","big":""},{"id":"0O7HGVEflk0LRCEJKDdETj","title":"Tribu 38 · GG All Stars (Dec 29 2023)","series":"GG All Stars","style":"Funk & Disco","place":"Tribu","songs":48,"saves":0,"date":"Dec 2023","sort":202312,"num":0,"desc":"","big":"https://i.scdn.co/image/ab67706c0000bebb508847265d955e97345e69c6"},{"id":"7u3UNCN0jfrOoLKAaxja9c","title":"SLM-54 Dia de Los Muertos Vivos","series":"Live sets","style":"House","place":"Salma","songs":60,"saves":3,"date":"Nov 2023","sort":202311,"num":0,"desc":"","big":""},{"id":"4DeaZ56MxiDFsgHOIHQmsR","title":"AZ-3 Soulful House","series":"Live sets","style":"Soul, Jazz & Soulful House","place":"","songs":66,"saves":0,"date":"Nov 2023","sort":202311,"num":0,"desc":"","big":""},{"id":"5AFaDl166DynsPVPqPJvic","title":"Animalunga","series":"Singles","style":"Chillout & Lounge","place":"","songs":52,"saves":5,"date":"Aug 2023","sort":202308,"num":0,"desc":"Lounge journey for my friend Davide Tieppo. Chillout trip into the 70's and 80's.","big":"https://i.scdn.co/image/ab67706c0000bebb1bdf0c7873110c9073681b05"},{"id":"53HoUJgvsauYoykw4lZ9GY","title":"Funky Disco Banger","series":"Singles","style":"Funk & Disco","place":"","songs":100,"saves":1,"date":"Jul 2023","sort":202307,"num":0,"desc":"100 tracks - 70's and 80's groovy soul, funky and original disco grooves in a rapturous crescendo. Featuring: EWF, James Brown, KC and the Sunshine Band, Moloko, Kool & the Gang, Barry White, MFSB, Harold Melvin and many more.","big":"https://i.scdn.co/image/ab67706c0000bebb9f897329be82cd6e30f764f6"},{"id":"46zB5yB9rJZuSiR1zCUl1I","title":"Spring End · Beach House DJ Set","series":"Live sets","style":"House","place":"Holbox","songs":49,"saves":3,"date":"Jun 2023","sort":202306,"num":0,"desc":"4+ hours of cool groovy tracks for a chillout, laid back sunset on the beach. Featuring: Miguel Migs, Bob Sinclair, Mo' Cream, Crackazat, Art of Tones, Pharrell Williams, Punky Wash, Javonnte, Laroye, Block & Crown, Nari, Christian Vila, Bross.","big":"https://i.scdn.co/image/ab67706c0000bebb7fa24804f866856797ab7331"},{"id":"3qVIespmpvos8pHkj409YH","title":"EWF like you've never heard 'em before","series":"Singles","style":"Funk & Disco","place":"","songs":10,"saves":0,"date":"Apr 2023","sort":202304,"num":0,"desc":"","big":""},{"id":"2KqexgojuEgvbXixd9PN24","title":"Quartieri Holbox","series":"Singles","style":"Italian","place":"Holbox","songs":36,"saves":0,"date":"Dec 2022","sort":202212,"num":0,"desc":"Italian grooves and memories from the 70's to today.","big":""},{"id":"1bS10HcbWyBqrpLGoouUqU","title":"Afro-Latin House #1 · Set 2022","series":"Live sets","style":"Latin & Afro","place":"Holbox","songs":39,"saves":0,"date":"Sep 2022","sort":202209,"num":1,"desc":"Fiesta time. From soft, soulful caribbean beats to the full fiesta-party grooves. 3.5 hours packed of danceable afro-latin tracks. By GG-DJ, Holbox Island (MX)","big":"https://i.scdn.co/image/ab67706c0000bebbe1cfc1674d82373427de5092"},{"id":"5PWZnxyiCc6HYPN50gS25K","title":"Nu-Disco Dance #01","series":"GG All Stars","style":"Funk & Disco","place":"Tribu","songs":37,"saves":106,"date":"Aug 2022","sort":202208,"num":1,"desc":"Playlist of tracks for GG All-Stars show at Tribu of Saturday August 6th 2022.","big":"https://i.scdn.co/image/ab67706c0000bebb0cda75be82ca04b0a2cf3689"},{"id":"0xU57CSHN9VWRYv9ig1vBU","title":"Comeback","series":"Singles","style":"House","place":"Holbox","songs":33,"saves":0,"date":"Aug 2022","sort":202208,"num":0,"desc":"Journey into summer grooves. From latin chill-out to funky deep grooves, joyful dance tracks and tech sparks. August,2022 - Holbox Island, MX - by GG-DJ - on IG and Mixcloud @officialGGDJ - ...dedicated to my beloved daughter Chiara.","big":"https://i.scdn.co/image/ab67706c0000bebb0c2570af694cd7ac42d6b576"},{"id":"50TdZvQwx2hDq9IPEVfqjF","title":"Tribu Anniversary · 80's Dance","series":"GG All Stars","style":"80s & Oldies","place":"Tribu","songs":19,"saves":0,"date":"Mar 2022","sort":202203,"num":0,"desc":"","big":""},{"id":"1oDg9pJTqNHlqL30sJsHdL","title":"Golden Oldies","series":"Singles","style":"80s & Oldies","place":"","songs":48,"saves":0,"date":"Aug 2021","sort":202108,"num":0,"desc":"","big":""},{"id":"12I6KlZlWIZ0BrkTD74P2C","title":"Salma 201","series":"Live sets","style":"House","place":"Salma","songs":36,"saves":1,"date":"May 2021","sort":202105,"num":0,"desc":"","big":""},{"id":"6Wc92lGUJfD6ofBAosDSIC","title":"Love Songs from Italy","series":"Singles","style":"Italian","place":"Italy","songs":37,"saves":0,"date":"Apr 2021","sort":202104,"num":0,"desc":"","big":""},{"id":"2Hu9U6oHjZjnvI2Y0DXHSt","title":"Philly Grooves","series":"Funky Grooves","style":"Funk & Disco","place":"","songs":15,"saves":0,"date":"Jan 2021","sort":202101,"num":0,"desc":"","big":""},{"id":"3FotsLPMV2dwZLHHTHOIA3","title":"Deep Jazzy Grooves","series":"Singles","style":"Soul, Jazz & Soulful House","place":"","songs":10,"saves":0,"date":"Dec 2020","sort":202012,"num":0,"desc":"","big":""},{"id":"2Mq0wQKdN3IuwlushPnsNU","title":"Tabasco Band Style · Dance 80s","series":"Tabasco","style":"80s & Oldies","place":"Tabasco","songs":12,"saves":0,"date":"Dec 2020","sort":202012,"num":0,"desc":"","big":""},{"id":"3K9NXXaAHsRCF0iuTQePAO","title":"Dance Instrumental","series":"Singles","style":"80s & Oldies","place":"","songs":14,"saves":0,"date":"Dec 2020","sort":202012,"num":0,"desc":"","big":""},{"id":"2qPByv9yCPwfx4dhcShD3X","title":"House Feeling","series":"Singles","style":"House","place":"","songs":11,"saves":0,"date":"Dec 2020","sort":202012,"num":0,"desc":"","big":""},{"id":"65ar0XSF3dTeGsPHxubbmc","title":"Soulful","series":"Singles","style":"Soul, Jazz & Soulful House","place":"","songs":20,"saves":0,"date":"Dec 2020","sort":202012,"num":0,"desc":"","big":""},{"id":"3voVnwFzXGrFX75tvXQNzk","title":"Tabasco Latin Rhythms #1 · Salsero","series":"Tabasco","style":"Latin & Afro","place":"Tabasco","songs":39,"saves":1,"date":"Dec 2020","sort":202012,"num":1,"desc":"Classic salsa, mambo, rumba grooves that make you want to move. Great brass sections, and powerful tracks. Jan. 2021. Holbox, MX.","big":"https://i.scdn.co/image/ab67706c0000bebb6be2b6b17f9e54b3a37cf0d0"},{"id":"40kOUeCf6vGrymXXEzBC80","title":"Full House","series":"Singles","style":"House","place":"","songs":45,"saves":0,"date":"Oct 2020","sort":202010,"num":0,"desc":"","big":""},{"id":"6m7f0BOcDe62kyj6uXAiXP","title":"Jazzy","series":"Singles","style":"Soul, Jazz & Soulful House","place":"","songs":25,"saves":0,"date":"Oct 2020","sort":202010,"num":0,"desc":"","big":""},{"id":"1E0fWbZuHMc9a0RUfhnQGS","title":"Phenix · Tabasco SuperBrass #1","series":"Tabasco","style":"Funk & Disco","place":"Tabasco","songs":46,"saves":0,"date":"Sep 2020","sort":202009,"num":1,"desc":"High-energy funk brass grooves.","big":"https://i.scdn.co/image/ab67706c0000bebbc3c54c026dc5b2f3967d4995"},{"id":"1dt9kgK92FBDp82hLsJLAX","title":"Deep House Grooves #15 · Charcos","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":1,"date":"Oct 2021","sort":202110,"num":15,"desc":"3.1 hours of cool funky, soulful and deep-house grooves. Inspired by the many wonderful ponds (charcos) that form in the sand streets of Holbox after rain falls. Oct 2021. Isla Holbox. Follow me on IG @officialGGDJ @robingood - also on Mixcloud @officialGGDJ","big":"https://i.scdn.co/image/ab67706c0000bebb5f7e0bef6887c788de282be5"},{"id":"0sojxKKnk9hthB3xnVURLh","title":"Deep House Grooves #17 · Phonky DJ","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":34,"saves":2,"date":"Nov 2021","sort":202111,"num":17,"desc":"Deep, soulful, funky and jackin house grooves. Non-stop music compilation by @officialGGDJ. December 2021, Holbox, MX.","big":"https://i.scdn.co/image/ab67706c0000bebb5b1a916dc089c89f7830778b"},{"id":"0lmUEKlAKhvoM3mfvyLK7u","title":"Deep House Grooves #19 · FrisbyNaix","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":4,"date":"Dec 2021","sort":202112,"num":19,"desc":"Deep, soulful, funky and jackin' house grooves. Cherry-picked and sequenced for you. By GG-DJ, Holbox, Mexico. Follow me on Instagram @officialGGDJ","big":"https://i.scdn.co/image/ab67706c0000bebb60fb0faaa968007c7bfe8a08"},{"id":"4s7eO9sD5AxoQK1JHViRab","title":"Deep House Grooves #16 · Fresbeach","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":1,"date":"Oct 2021","sort":202110,"num":16,"desc":"3 hrs + of cool deep, funky, jackin, jazzy and soulful house beats. Hand-picked and sequenced by GG-DJ (@officialGGDJ). Nov. 2021. Holbox, MX.","big":"https://i.scdn.co/image/ab67706c0000bebb251bc1dfe3742a89bd3f2503"},{"id":"4zLEKeTozfKuKIsdR5VAXl","title":"Deep House Grooves #14 · Soulbox","series":"Deep House Grooves","style":"Deep House","place":"Soulbox","songs":33,"saves":5,"date":"Aug 2021","sort":202108,"num":14,"desc":"The vibe is on the roof. 3.3 hours of cool funky, deep, soulful and jackin-house grooves. Inspired by the many DJ sets played on the Soulbox rooftop in Holbox. Enjoy. Dance. Feel the music. Follow me on IG @officialGGDJ","big":"https://i.scdn.co/image/ab67706c0000bebbe05d7538f6764390ecd923e8"},{"id":"6J8gBF33tbGGjLFIGv3X1R","title":"Deep House Grooves #18 · Deeeeper","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":40,"saves":7,"date":"Jun 2021","sort":202106,"num":18,"desc":"Pure deep house sounds. Non-stop. Warm groovy Rhodes and that house beat that never ends. This is what deep house is. 2021. Isla Holbox, Mex. @officialGGDJ","big":"https://i.scdn.co/image/ab67706c0000bebbac3b3e9fe14cc96f3af6c8dd"},{"id":"2EcyPqxpgURcH70IN3b5Br","title":"Deep House Grooves #13 · Barbarossa","series":"Deep House Grooves","style":"Deep House","place":"Barbarossa","songs":33,"saves":8,"date":"May 2021","sort":202105,"num":13,"desc":"3.5 hours of cool funky, deep, soulful and jackin-house grooves. Just like the ones I played many times at Barbarossa on the beach. Enjoy. Dance. Feel the music. Follow me on IG @officialGGDJ","big":"https://i.scdn.co/image/ab67706c0000bebb077208bc95dd1b04e1e46307"},{"id":"1cfRwrEQ67x0knet21j75k","title":"Deep House Grooves #12 · Salma","series":"Deep House Grooves","style":"Deep House","place":"Salma","songs":33,"saves":3,"date":"Apr 2021","sort":202104,"num":12,"desc":"33 super-groovy tracks to dance to - deep-house, funky, jacking-house, jazzy-house and nu-disco. Inspired by the beautiful music and atmosphere of Salma, n.1 night club in Holbox. Follow me on IG @officialGGDJ","big":"https://i.scdn.co/image/ab67706c0000bebbfbb10250698335c5dbb3f53b"},{"id":"35SbpeCBm535DfHwwj7Gt1","title":"Deep House Grooves #11 · Tribu","series":"Deep House Grooves","style":"Deep House","place":"Tribu","songs":33,"saves":5,"date":"Apr 2021","sort":202104,"num":11,"desc":"A non-stop pre-mixed compilation of warm and groovy deep house, soulful and funk rhythm tracks. For sunshine, freedom-loving people. By GG DJ. Holbox, Mex. April 2021. Instagram.com/robingood","big":"https://i.scdn.co/image/ab67706c0000bebb5c316b27c10d26ea61c55d72"},{"id":"4fFsvO8aepqbjyCtxYFQ1M","title":"Deep House Grooves #10 · Natasha","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":7,"date":"Mar 2021","sort":202103,"num":10,"desc":"Three hours of deep, warm, funky and deep soulful house tracks for sunshine freedom-loving people. Pre-mixed and sequenced by GG DJ. March 2021, Holbox, Mex. Instagram.com/robingood","big":"https://i.scdn.co/image/ab67706c0000bebb4f8d55b937974c507e1af8d2"},{"id":"6SIffTpGz5Iq9cgWdSvxIY","title":"Deep House Grooves #9 · Morgan's Paradise","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":11,"date":"Mar 2021","sort":202103,"num":9,"desc":"Groovy, soulful, deep underground house tracks with some good funky flavours. Good vibes for dancing.","big":"https://i.scdn.co/image/ab67706c0000bebb3e14022ba5bf815a0b829e14"},{"id":"7oWumMWtAfHJdIKXOR1SW8","title":"Deep House Grooves #8 · El Roque","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":12,"date":"Mar 2021","sort":202103,"num":8,"desc":"3.5 hours of non-stop groovy underground tracks. For sunshine people. By GG DJ, Holbox, Mex. Mar 2021. For best listn exprnc set Sptfy adv settngs to auto cross-fade for 12\".","big":"https://i.scdn.co/image/ab67706c0000bebb33c94476f711063e66a99300"},{"id":"11no3kCfhPVw5ffyVIT5iY","title":"Deep House Grooves #7 · Puerta Azul","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":11,"date":"Mar 2021","sort":202103,"num":7,"desc":"33 groovy danceable deep & soulful house tracks pre-mixed and sequenced by GG DJ. Deep and funky chords, warm and soulful. For sunshine people. March 2021, Holbox, Mex. Instagram.com/robingood","big":"https://i.scdn.co/image/ab67706c0000bebbf98d0190168434ba6d7ef821"},{"id":"14F622qbBhbH9SO8WbJqHr","title":"Deep House Grooves #6 · Sun G","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":10,"date":"Feb 2021","sort":202102,"num":6,"desc":"3.5 hrs non-stop deep underground groovy house tracks with positive funky vibes. By GG DJ. Feb 2021. Holbox, Mex. Set Spotify adv settings to cross-fade for 12\". Instagram.com/robingood","big":"https://i.scdn.co/image/ab67706c0000bebbed2a12bc753c3a049103a30d"},{"id":"2dwFbe8FsYvlBdsS4Rj4QR","title":"Deep House Grooves #5 · Punta Coco","series":"Deep House Grooves","style":"Deep House","place":"Punta Coco","songs":33,"saves":23,"date":"Feb 2021","sort":202102,"num":5,"desc":"3.5 hours non-stop deep underground funky house grooves that make you wanna move. Jan.2021, Holbox, Mex. By GG DJ. *4 best listn exprnc set sptfy to automix + cross-fade 12\". Instagram.com/robingood","big":"https://i.scdn.co/image/ab67706c0000bebbde927431bbec658877378051"},{"id":"1rdT8lnPyU56XYLCfOAYDY","title":"Deep House Grooves #4 · Magic","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":15,"date":"Dec 2020","sort":202012,"num":4,"desc":"33 tracks x 3hrs + 33min progressive deep house tracks with cool, groovy, dance rhythms. Dec.2020, Holbox, Mex. *4 best listn exprnc set sptfy to automix + cross-fade 12\". Instagram.com/RobinGood","big":"https://i.scdn.co/image/ab67706c0000bebb671bd9af6c6b6d81e018f93e"},{"id":"7I0vsM9VBa4Pi0bxED7xTK","title":"Deep House Grooves #3 · Nitro","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":17,"date":"Dec 2020","sort":202012,"num":3,"desc":"33 deeply danceable groovy tracks with lots of warm synths. Dec. 2020 - Holbox, Mexico. P.S.: For best results set Spotify advanced settings to auto cross-fade in 12secs. Instagram.com/robingood","big":"https://i.scdn.co/image/ab67706c0000bebbfea817b222c7b4d457d5df8b"},{"id":"1OyvbYe4bwpfM95rUCtJOx","title":"Deep House Grooves #2 · Mystic","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":42,"date":"Dec 2020","sort":202012,"num":2,"desc":"3.5 hours of deep house tracks. Underground and garage rhythms. Cool and repetitive Rhodes harmonies and synths. 120BPM. Dec. 2020, Isla Holbox, Mex. By Robin Good DJ. P.S.: For best results set Spotify playback settings to cross-fade of 12. Find me on Instagram too as *robingood*","big":"https://i.scdn.co/image/ab67706c0000bebb9d87ef5e549b832db883b60b"},{"id":"3Qmef0uasWJI1HMuc5epwP","title":"Deep House Grooves #1 · Jupiter","series":"Deep House Grooves","style":"Deep House","place":"Holbox","songs":33,"saves":553,"date":"Oct 2020","sort":202010,"num":1,"desc":"Three hours non-stop of powerful deep house groovy tracks. The smooth sound of synthesizer chords with deep underground rhythm tracks. Compiled by GG DJ, Isla Holbox, Mexico. *P.S.: Set your Spotify settings to automix with cross-fade times of 12 secs - Find me on Instagram as *officialggdj*","big":"https://i.scdn.co/image/ab67706c0000bebb8a1c5b34c16d2c330bd39539"},{"id":"5PBItOQmtxBZtAHoXDeUCS","title":"GG All Stars #4 · Top 20 Key Themes","series":"GG All Stars","style":"Funk & Disco","place":"Tribu","songs":20,"saves":0,"date":"Jul 2021","sort":202107,"num":4,"desc":"Reference tracks for GG All Stars session 4 at @Tribu for Fri July 9th 2021","big":""},{"id":"2xFAov5bYhxepXnAB1RV5x","title":"GG All Stars #3","series":"GG All Stars","style":"Funk & Disco","place":"Tribu","songs":36,"saves":1,"date":"Jul 2021","sort":202107,"num":3,"desc":"","big":""},{"id":"4jDzuLnRR8wnmqIl7G8ztp","title":"GG All Stars #2","series":"GG All Stars","style":"Funk & Disco","place":"Tribu","songs":10,"saves":3,"date":"Jun 2021","sort":202106,"num":2,"desc":"","big":""},{"id":"6cpwdpKfso1jiglEuSjwbF","title":"GG All Stars n.1","series":"GG All Stars","style":"Funk & Disco","place":"Tribu","songs":42,"saves":3,"date":"Jun 2021","sort":202106,"num":0,"desc":"","big":""},{"id":"7igBStYKTbT1h3Enyf2EvQ","title":"Funky Dance 2","series":"Funky Grooves","style":"Funk & Disco","place":"","songs":31,"saves":0,"date":"Apr 2021","sort":202104,"num":0,"desc":"","big":""},{"id":"3b6imXdWjfjOmh4u1W1zKD","title":"Deep James Brown Grooves","series":"Funky Grooves","style":"Funk & Disco","place":"","songs":21,"saves":0,"date":"Feb 2021","sort":202102,"num":0,"desc":"","big":""},{"id":"7lcj4k2h2KcYzuWRHabEbO","title":"Funky Dance","series":"Funky Grooves","style":"Funk & Disco","place":"","songs":68,"saves":0,"date":"Feb 2021","sort":202102,"num":0,"desc":"","big":""},{"id":"0anF9frUU8GBO2eILbcDj2","title":"Deep Funk by Robin Good","series":"Funky Grooves","style":"Funk & Disco","place":"","songs":24,"saves":0,"date":"Nov 2020","sort":202011,"num":0,"desc":"","big":""},{"id":"5S9dxd7qZkYGpxD21ZcdWZ","title":"Tabasco Chillout · Summer End","series":"Tabasco Chillout Lounge","style":"Chillout & Lounge","place":"Tabasco","songs":46,"saves":1,"date":"Aug 2023","sort":202308,"num":0,"desc":"Lounge flashback to 70's and 80's. Featuring: Ramsey Lewis, Joe Sample, Lonnie Liston Smith, Steely Dan, Barry White and many more.","big":""},{"id":"2MbbMPRxMRpjR3pBm98hdo","title":"Tabasco Chillout #7 · Shining Crystals","series":"Tabasco Chillout Lounge","style":"Chillout & Lounge","place":"Tabasco","songs":24,"saves":0,"date":"Oct 2021","sort":202110,"num":7,"desc":"Cool, chillout sunset vibes","big":""},{"id":"0KV7zwHsZz706huOizwiiD","title":"Tabasco Chillout #6 · Cocktail","series":"Tabasco Chillout Lounge","style":"Chillout & Lounge","place":"Tabasco","songs":33,"saves":2,"date":"Apr 2021","sort":202104,"num":6,"desc":"Chillout, relax, lay back. 2.5 hours of cool groovy soulful, depp, jazzy and latin-house tracks for the sunset hours. By GG-DJ. Follow me on IG @officialGGDJ @robingood","big":"https://i.scdn.co/image/ab67706c0000bebb585b6e532fc8f8a51685b771"},{"id":"3XqUmDEx1pHqIwZUeNZfpl","title":"Tabasco Chillout #5 · Deep Chill","series":"Tabasco Chillout Lounge","style":"Chillout & Lounge","place":"Tabasco","songs":33,"saves":5,"date":"Mar 2021","sort":202103,"num":5,"desc":"Chillout baby. 3.1 hours of cool, relaxed and laid-back tracks. From jazzy to soulful, from latin to deep, you've got it all. October 2021. Isla Holbox, MX. Follow me on IG @officialGGDJ @robingood","big":"https://i.scdn.co/image/ab67706c0000bebb65f677df0766a5290491915f"},{"id":"1DKDYEKFffG2k9BDNGpCMg","title":"Tabasco Chillout #4 · Ocean","series":"Tabasco Chillout Lounge","style":"Chillout & Lounge","place":"Tabasco","songs":23,"saves":9,"date":"Dec 2020","sort":202012,"num":4,"desc":"Cool smooth grooves for night driving.","big":"https://i.scdn.co/image/ab67706c0000bebb1aadbf66406a5d3acf6cc506"},{"id":"4yftENFCNebVPgJqwaifDe","title":"Tabasco Chillout #3 · Flamingo Flashback","series":"Tabasco Chillout Lounge","style":"Chillout & Lounge","place":"Tabasco","songs":46,"saves":7,"date":"Oct 2020","sort":202010,"num":3,"desc":"Cool smooth grooves for the perfect relaxed elegant chillout atmosphere. A playlist that flies far and wide into the past with some unique evergreen gems.","big":"https://i.scdn.co/image/ab67706c0000bebbfbf660d1a866300bb97f3e2c"},{"id":"3IT8H2X9c8uN54vwdWISwi","title":"Tabasco Chillout #2 · The Dream","series":"Tabasco Chillout Lounge","style":"Chillout & Lounge","place":"Tabasco","songs":29,"saves":8,"date":"Sep 2020","sort":202009,"num":2,"desc":"Relaxed, cool, chilled-out atmosphere - mostly instrumental.","big":"https://i.scdn.co/image/ab67706c0000bebbe610175204005c2d35b2d42f"},{"id":"77I2UCEc4owrBLvWDi5RAP","title":"Tabasco Chillout #1 · Sun Rays","series":"Tabasco Chillout Lounge","style":"Chillout & Lounge","place":"Tabasco","songs":29,"saves":23,"date":"Sep 2020","sort":202009,"num":1,"desc":"Relaxed, sophisticated, groovy chillout instrumental hop tracks.","big":"https://i.scdn.co/image/ab67706c0000bebbe630c5ad8751c4c3def635dc"},{"id":"1FmHrHG24vSkkcZNcdFNqr","title":"GG All Stars · Keyboard & Percussion Tracks","series":"GG All Stars","style":"Funk & Disco","place":"Tribu","songs":7,"saves":0,"date":"Jul 2021","sort":202107,"num":0,"desc":"","big":""},{"id":"6UC25yiE76nUKseS4w2Hze","title":"GG All Stars · Violin Tracks","series":"GG All Stars","style":"Funk & Disco","place":"Tribu","songs":7,"saves":0,"date":"Jul 2021","sort":202107,"num":0,"desc":"","big":""},{"id":"25uB75rEntIwbgUAkJVkUb","title":"GG All Stars · Guitar & Vocals / Rap","series":"GG All Stars","style":"Funk & Disco","place":"Tribu","songs":7,"saves":0,"date":"Jul 2021","sort":202107,"num":0,"desc":"","big":""}]</script>
+<script>
+{
+const app = document.getElementById('app');
+let D = [];
+const state = { tab: 'style', sel: null, q: '', sortBy: 'sort', dir: -1 };
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const sp = id => 'https://open.spotify.com/playlist/' + encodeURIComponent(id);
+const cover = p => '<div class="cover"><img loading="lazy" alt="Cover of ' + esc(p.title) + '" src="' + esc('covers/' + p.id + '.jpg') + '" onerror="this.onerror=null;this.src=\'covers/' + esc(p.id) + '.jpg\'"></div>';
+const meta = p => esc(p.date) + ' · ' + p.songs + ' songs' + (p.saves ? ' · ' + p.saves + ' saves' : '');
+const card = p => '<a class="card" href="#p-' + esc(p.id) + '"><div class="cv">' + cover(p) + '</div><div class="tx"><span class="meta">' + meta(p) + '</span><span class="ttl">' + esc(p.title) + '</span>' + (p.desc ? '<span class="dsc">' + esc(p.desc) + '</span>' : '') + '<span class="chip">' + esc(p.style) + '</span></div></a>';
+
+const SERIES = [
+  ['Deep House Grooves', 'Deep House Grooves'],
+  ['Tabasco Chillout Lounge', 'Tabasco Chillout Lounge'],
+  ['GG All Stars', 'GG All Stars · nights at Tribu'],
+  ['Tabasco', 'Tabasco specials'],
+  ['Funky Grooves', 'Funky Grooves'],
+  ['Live sets', 'Live sets'],
+  ['Singles', 'One-offs']
+];
+const BAR = '<div class="sitebar"><div class="wrap"><a href="https://robingood.com/" aria-label="Robin Good homepage"><img src="assets/wordmark.svg" alt="Robin Good"></a><nav aria-label="Main navigation"><a href="https://robingood.com/key-ideas/">Key Ideas</a><a href="https://robingood.com/interviews-talks-presentations/">Interviews &amp; Presentations</a><a href="https://robingood.com/tools/">Tools</a><a href="#" aria-current="page">Music</a></nav></div></div>';
+const TABS = [
+  ['style', 'Style', 'what it sounds like'],
+  ['place', 'Place', 'where it was born'],
+  ['year', 'Year', '2020 to 2024']
+];
+const val = (p, k) => k === 'year' ? String(Math.floor(p.sort / 100)) : (p[k] || 'No special place');
+
+function home() {
+  const q = state.q.trim().toLowerCase();
+  const byDate = (a, b) => b.sort - a.sort;
+  const found = q ? D.filter(p => (p.title + ' ' + p.desc + ' ' + p.place + ' ' + p.style + ' ' + p.series).toLowerCase().includes(q)).sort(byDate) : [];
+  const top = [...D].sort((a, b) => b.saves - a.saves).slice(0, 10);
+  const shelves = SERIES.map(([k, name]) => {
+    const items = D.filter(p => p.series === k).sort((a, b) => (a.num && b.num) ? a.num - b.num : a.sort - b.sort);
+    if (!items.length) return '';
+    const s = [...items].sort((a, b) => a.sort - b.sort);
+    const span = s[0].date === s[s.length - 1].date ? s[0].date : s[0].date + ' to ' + s[s.length - 1].date;
+    return '<div class="shelf"><div class="shelf-h"><h3>' + esc(name) + '</h3><span>' + items.length + ' playlists · ' + esc(span) + '</span></div><div class="rowwrap"><div class="row" tabindex="0" aria-label="' + esc(name) + '">' +
+      items.map(p => '<a href="#p-' + esc(p.id) + '" title="' + esc(p.title) + '">' + cover(p) + '<span class="meta">' + esc(p.date) + ' · ' + p.songs + ' songs</span></a>').join('') +
+      '</div><button class="nav l" aria-label="Scroll left">‹</button><button class="nav r" aria-label="Scroll right">›</button></div></div>';
+  }).join('');
+  const map = {};
+  D.forEach(p => { const v = val(p, state.tab); (map[v] = map[v] || []).push(p); });
+  let keys = Object.keys(map);
+  keys.sort(state.tab === 'year' ? (a, b) => a - b : (a, b) => map[b].length - map[a].length);
+  const groups = keys.map(k => '<button class="group" data-g="' + esc(k) + '" aria-pressed="' + (state.sel === k) + '"><div class="three">' +
+    [...map[k]].sort((a, b) => b.saves - a.saves).slice(0, 3).map(cover).join('') + '</div><b>' + esc(k) + '</b><span class="meta">' + map[k].length + (map[k].length === 1 ? ' playlist' : ' playlists') + '</span></button>').join('');
+  const picked = state.sel != null ? D.filter(p => val(p, state.tab) === state.sel).sort(byDate) : [];
+  app.innerHTML = BAR +
+    '<div class="wrap"><header class="top"><div><h1>GG DJ Music Archive</h1><p class="intro">GG DJ is my name when I play music. These are all the playlists I made on Spotify since 2020.</p></div>' +
+    '<label class="search"><span>Search the archive</span><input id="q" type="search" value="' + esc(state.q) + '" placeholder="A title, a place, a word like sunset"></label></header>' +
+    (q
+      ? '<section><div class="listhead" style="margin-top:0"><h2>Search results</h2><div style="display:flex;gap:10px;align-items:center"><button class="btn" id="clear">Clear</button><span class="meta">' + found.length + ' of ' + D.length + '</span></div></div>' + (found.length ? '<div class="grid">' + found.map(card).join('') + '</div>' : '<p class="empty">Nothing found. Try another word.</p>') + '</section>'
+      : '<section><p class="label">START HERE · THE MOST SAVED</p><div class="strip">' + top.map(card).join('') + '</div></section>') +
+    '<section><p class="label">BROWSE BY</p><div class="tabs" role="tablist">' +
+    TABS.map(([k, n, s]) => '<button role="tab" data-t="' + k + '" aria-selected="' + (state.tab === k) + '"><b>' + n + '</b><small>' + s + '</small></button>').join('') +
+    '</div><div class="groups">' + groups + '</div>' +
+    (state.sel != null ? '<div class="picked" id="picked"><div class="listhead" style="margin-top:0"><h2>' + esc(state.sel) + '</h2><div style="display:flex;gap:10px;align-items:center"><button class="btn" id="close">Close</button><span class="meta">' + picked.length + (picked.length === 1 ? ' playlist' : ' playlists') + ' · newest first</span></div></div><div class="grid">' + picked.map(card).join('') + '</div></div>' : '') +
+    '</section></div>' +
+    '<div class="crates"><div class="wrap"><h2>Playlist series</h2><p class="sub">Each row is one series, in the order I made them. Slide sideways to see them all.</p>' + shelves + '</div></div>' +
+    '<div class="wrap"><section><div class="listhead"><h2>All ' + D.length + ' playlists</h2><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><a class="btn" href="#list">See them as a list</a><span class="meta">newest first</span></div></div>' +
+    '<div class="grid">' + [...D].sort(byDate).map(card).join('') + '</div>' +
+    '</section><footer><span>GG DJ Music Archive · Robin Good</span><span>Every cover opens its playlist page, where you can play it.</span></footer></div>';
+  const qi = document.getElementById('q');
+  qi.addEventListener('input', e => { state.q = e.target.value; const pos = e.target.selectionStart; home(); const n = document.getElementById('q'); n.focus(); n.setSelectionRange(pos, pos); });
+  app.querySelectorAll('[data-t]').forEach(b => b.onclick = () => { state.tab = b.dataset.t; state.sel = null; home(); });
+  app.querySelectorAll('[data-g]').forEach(b => b.onclick = () => { state.sel = state.sel === b.dataset.g ? null : b.dataset.g; home(); const pk = document.getElementById('picked'); if (pk) pk.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  const c = document.getElementById('clear'); if (c) c.onclick = () => { state.q = ''; home(); };
+  const cl = document.getElementById('close'); if (cl) cl.onclick = () => { state.sel = null; home(); };
+  app.querySelectorAll('.rowwrap').forEach(w => { const r = w.querySelector('.row'); w.querySelector('.l').onclick = () => r.scrollBy({ left: -480, behavior: 'smooth' }); w.querySelector('.r').onclick = () => r.scrollBy({ left: 480, behavior: 'smooth' }); });
+}
+
+function page(id) {
+  const p = D.find(x => x.id === id);
+  if (!p) { location.hash = ''; return; }
+  const score = x => (x.style === p.style ? 2 : 0) + (x.series === p.series ? 1 : 0) + (x.place && x.place === p.place ? 1 : 0);
+  const near = D.filter(x => x.id !== p.id).sort((a, b) => score(b) - score(a) || b.saves - a.saves).slice(0, 6);
+  app.innerHTML = '<div class="pl">' + BAR + '<div class="wrap"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:28px"><a class="back" href="#">← GG DJ · Music Archive</a><button class="surprise" id="sur">Surprise me</button></div>' +
+    '<div class="pl-top"><div class="pl-cv">' + cover(p) + '</div><div class="pl-tx"><span class="meta">' + meta(p) + (p.place ? ' · ' + esc(p.place) : '') + '</span><h1>' + esc(p.title) + '</h1>' +
+    (p.desc ? '<p>' + esc(p.desc) + '</p>' : '') + '<div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip">' + esc(p.style) + '</span><span class="chip">' + esc(p.series === 'Singles' ? 'One-off' : p.series) + '</span></div>' +
+    '<iframe class="player" title="Spotify player for ' + esc(p.title) + '" src="https://open.spotify.com/embed/playlist/' + encodeURIComponent(p.id) + '?theme=0" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>' +
+    '<a href="' + sp(p.id) + '" style="color:#E7A27C;font:700 15px Inter Tight,sans-serif">Open in Spotify</a></div></div>' +
+    '<h2>If you like this one</h2><div class="near">' + near.map(x => '<a href="#p-' + esc(x.id) + '">' + cover(x) + '<span class="ttl" style="font-size:13px">' + esc(x.title) + '</span><span class="meta">' + esc(x.style) + '</span></a>').join('') + '</div></div></div>';
+  document.getElementById('sur').onclick = () => { const r = D[Math.floor(Math.random() * D.length)]; location.hash = 'p-' + r.id; };
+  window.scrollTo(0, 0);
+}
+
+function listPage() {
+  const C = [['title', 'Playlist'], ['style', 'Style'], ['series', 'Series'], ['place', 'Place'], ['sort', 'Made'], ['songs', 'Songs'], ['saves', 'Saves']];
+  const rows = [...D].sort((a, b) => { const A = a[state.sortBy] ?? '', B = b[state.sortBy] ?? ''; return (A > B ? 1 : A < B ? -1 : 0) * state.dir; });
+  app.innerHTML = BAR + '<div class="wrap"><header class="top"><a href="#" class="sans" style="font-weight:700;text-decoration:none">← Back to the archive</a><h1 style="margin-top:18px">All ' + D.length + ' playlists in one table</h1><p class="intro">Click a column name to sort.</p></header>' +
+    '<div class="tbox"><table><thead><tr><th class="thumb"></th>' + C.map(([k, l]) => '<th><button data-s="' + k + '"' + (state.sortBy === k ? ' aria-sort="' + (state.dir > 0 ? 'ascending' : 'descending') + '"' : '') + '>' + l + (state.sortBy === k ? (state.dir > 0 ? ' ↑' : ' ↓') : '') + '</button></th>').join('') + '</tr></thead><tbody>' +
+    rows.map(p => '<tr><td><div class="thumb">' + cover(p) + '</div></td><td><a href="#p-' + esc(p.id) + '">' + esc(p.title) + '</a></td><td>' + esc(p.style) + '</td><td>' + esc(p.series) + '</td><td>' + esc(p.place) + '</td><td class="n">' + esc(p.date) + '</td><td class="n">' + p.songs + '</td><td class="n">' + p.saves + '</td></tr>').join('') +
+    '</tbody></table></div><footer><span>GG DJ · Robin Good</span></footer></div>';
+  app.querySelectorAll('[data-s]').forEach(b => b.onclick = () => { const k = b.dataset.s; state.dir = state.sortBy === k ? -state.dir : (['title', 'style', 'series', 'place'].includes(k) ? 1 : -1); state.sortBy = k; listPage(); });
+  window.scrollTo(0, 0);
+}
+
+function route() {
+  const h = location.hash.slice(1);
+  if (h.startsWith('p-')) page(h.slice(2));
+  else if (h === 'list') listPage();
+  else home();
+}
+window.addEventListener('hashchange', route);
+D = JSON.parse(document.getElementById('data').textContent); route();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+name: Copy the music archive from robingood.com
+
+on:
+  schedule:
+    - cron: "41 9 * * 2"   # every Tuesday at 09:41 UTC (16:41 in Bangkok)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Copy robingood.com/music and its covers
+        run: python3 scripts/mirror.py
+      - name: Ask the Internet Archive to keep a copy
+        continue-on-error: true
+        run: curl -s -o /dev/null -w "Internet Archive answered %{http_code}\n" "https://web.archive.org/save/https://robingood.com/music/"
+      - name: Save the changes
+        run: |
+          git config user.name "ggdj-archive-bot"
+          git config user.email "ggdj-archive-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Weekly copy of robingood.com/music"
+          git push
