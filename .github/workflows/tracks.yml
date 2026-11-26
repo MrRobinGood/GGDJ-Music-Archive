@@ -1,0 +1,27 @@
+name: Save the track lists from Spotify
+
+on:
+  schedule:
+    - cron: "17 10 2 * *"   # once a month, on the 2nd
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tracks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/tracks.py
+      - name: Save the changes
+        run: |
+          git config user.name "ggdj-archive-bot"
+          git config user.email "ggdj-archive-bot@users.noreply.github.com"
+          git add docs/tracks.json
+          git diff --cached --quiet || git commit -m "Track lists from Spotify"
+          git push
