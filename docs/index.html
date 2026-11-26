@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GG DJ Music Archive · Robin Good</title>
+<title>GG-DJ Music Archive · Robin Good</title>
 <link rel="canonical" href="https://robingood.com/music/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="description" content="All the Spotify playlists made by GG DJ (Robin Good) since 2020: deep house, funk, disco, chillout and more.">
-<meta property="og:title" content="GG DJ Music Archive · Robin Good">
+<meta property="og:title" content="GG-DJ Music Archive · Robin Good">
 <meta property="og:url" content="https://robingood.com/music/">
 <meta property="og:description" content="Deep house, funk, disco, chillout and more. All the Spotify playlists made by GG DJ.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -181,7 +181,7 @@ function home() {
     [...map[k]].sort((a, b) => b.saves - a.saves).slice(0, 3).map(cover).join('') + '</div><b>' + esc(k) + '</b><span class="meta">' + map[k].length + (map[k].length === 1 ? ' playlist' : ' playlists') + '</span></button>').join('');
   const picked = state.sel != null ? D.filter(p => val(p, state.tab) === state.sel).sort(byDate) : [];
   app.innerHTML = BAR +
-    '<div class="wrap"><header class="top"><div><h1>GG DJ Music Archive</h1><p class="intro">GG DJ is my name when I play music. These are all the playlists I made on Spotify since 2020.</p></div>' +
+    '<div class="wrap"><header class="top"><div><h1>GG-DJ Music Archive</h1><p class="intro">These are all the Spotify playlists I made since 2020.</p></div>' +
     '<label class="search"><span>Search the archive</span><input id="q" type="search" value="' + esc(state.q) + '" placeholder="A title, a place, a word like sunset"></label></header>' +
     (q
       ? '<section><div class="listhead" style="margin-top:0"><h2>Search results</h2><div style="display:flex;gap:10px;align-items:center"><button class="btn" id="clear">Clear</button><span class="meta">' + found.length + ' of ' + D.length + '</span></div></div>' + (found.length ? '<div class="grid">' + found.map(card).join('') + '</div>' : '<p class="empty">Nothing found. Try another word.</p>') + '</section>'
@@ -194,7 +194,7 @@ function home() {
     '<div class="crates"><div class="wrap"><h2>Playlist series</h2><p class="sub">Each row is one series, in the order I made them. Slide sideways to see them all.</p>' + shelves + '</div></div>' +
     '<div class="wrap"><section><div class="listhead"><h2>All ' + D.length + ' playlists</h2><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><a class="btn" href="#list">See them as a list</a><span class="meta">newest first</span></div></div>' +
     '<div class="grid">' + [...D].sort(byDate).map(card).join('') + '</div>' +
-    '</section><footer><span>GG DJ Music Archive · Robin Good</span><span>Every cover opens its playlist page, where you can play it.</span></footer></div>';
+    '</section><footer><span>GG-DJ Music Archive · Robin Good</span><span>Every cover opens its playlist page, where you can play it.</span></footer></div>';
   const qi = document.getElementById('q');
   qi.addEventListener('input', e => { state.q = e.target.value; const pos = e.target.selectionStart; home(); const n = document.getElementById('q'); n.focus(); n.setSelectionRange(pos, pos); });
   app.querySelectorAll('[data-t]').forEach(b => b.onclick = () => { state.tab = b.dataset.t; state.sel = null; home(); });

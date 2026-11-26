@@ -6,6 +6,7 @@ archive, with its own covers, published by GitHub Pages.
 """
 import io
 import json
+import os
 import pathlib
 import sys
 import urllib.request
@@ -23,12 +24,29 @@ def get(url):
         return r.read()
 
 
+def changed_flag(value):
+    out = os.environ.get("GITHUB_OUTPUT")
+    if out:
+        with open(out, "a") as f:
+            f.write(f"changed={'yes' if value else 'no'}\n")
+
+
 def main():
     DOCS.mkdir(exist_ok=True)
     (DOCS / "covers").mkdir(exist_ok=True)
     (DOCS / "assets").mkdir(exist_ok=True)
 
     html = get(SITE + "index.html").decode("utf-8")
+    note = '<!-- Copy of https://robingood.com/music/ kept on GitHub by Robin Good. -->\n'
+    local = note + html.replace(
+        "esc(p.big || ('covers/' + p.id + '.jpg'))",
+        "esc('covers/' + p.id + '.jpg')",
+    )
+    old = DOCS / "index.html"
+    if old.exists() and old.read_text(encoding="utf-8") == local:
+        print("robingood.com/music has not changed. Nothing to do.")
+        changed_flag(False)
+        return
     sources = json.loads(get(SITE + "cover-sources.json"))
     (DOCS / "cover-sources.json").write_text(json.dumps(sources, indent=0))
     (DOCS / "assets" / "wordmark.svg").write_bytes(get(SITE + "assets/wordmark.svg"))
@@ -57,14 +75,10 @@ def main():
             print("cover problem", pid, e, file=sys.stderr)
 
     # In this copy the covers come from our own folder, never from Spotify.
-    html = html.replace(
-        "esc(p.big || ('covers/' + p.id + '.jpg'))",
-        "esc('covers/' + p.id + '.jpg')",
-    )
-    note = '<!-- Copy of https://robingood.com/music/ kept on GitHub by Robin Good. -->\n'
-    (DOCS / "index.html").write_text(note + html, encoding="utf-8")
+    (DOCS / "index.html").write_text(local, encoding="utf-8")
     (DOCS / ".nojekyll").write_text("")
     print(f"covers saved: {ok}, problems: {len(failed)}")
+    changed_flag(True)
 
 
 if __name__ == "__main__":
