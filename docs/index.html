@@ -153,9 +153,7 @@ const SERIES = [
 ];
 const BAR = '<div class="sitebar"><div class="wrap"><a href="https://robingood.com/" aria-label="Robin Good homepage"><img src="assets/wordmark.svg" alt="Robin Good"></a><nav aria-label="Main navigation"><a href="https://robingood.com/key-ideas/">Key Ideas</a><a href="https://robingood.com/interviews-talks-presentations/">Interviews &amp; Presentations</a><a href="https://robingood.com/tools/">Tools</a><a href="#" aria-current="page">Music</a></nav></div></div>';
 const TABS = [
-  ['style', 'Style', 'what it sounds like'],
-  ['place', 'Place', 'where it was born'],
-  ['year', 'Year', '2020 to 2024']
+  ['style', 'Style', 'what it sounds like']
 ];
 const val = (p, k) => k === 'year' ? String(Math.floor(p.sort / 100)) : (p[k] || 'No special place');
 
@@ -181,7 +179,7 @@ function home() {
     [...map[k]].sort((a, b) => b.saves - a.saves).slice(0, 3).map(cover).join('') + '</div><b>' + esc(k) + '</b><span class="meta">' + map[k].length + (map[k].length === 1 ? ' playlist' : ' playlists') + '</span></button>').join('');
   const picked = state.sel != null ? D.filter(p => val(p, state.tab) === state.sel).sort(byDate) : [];
   app.innerHTML = BAR +
-    '<div class="wrap"><header class="top"><div><h1>GG-DJ Music Archive</h1><p class="intro">GG DJ is my name when I play music. These are all the Spotify playlists I made since 2020.</p></div>' +
+    '<div class="wrap"><header class="top"><div><h1>GG-DJ Music Archive</h1><p class="intro">GG-DJ is my name when I play music. These are all the Spotify playlists I made since 2020.</p></div>' +
     '<label class="search"><span>Search the archive</span><input id="q" type="search" value="' + esc(state.q) + '" placeholder="A title, a place, a word like sunset"></label></header>' +
     (q
       ? '<section><div class="listhead" style="margin-top:0"><h2>Search results</h2><div style="display:flex;gap:10px;align-items:center"><button class="btn" id="clear">Clear</button><span class="meta">' + found.length + ' of ' + D.length + '</span></div></div>' + (found.length ? '<div class="grid">' + found.map(card).join('') + '</div>' : '<p class="empty">Nothing found. Try another word.</p>') + '</section>'
