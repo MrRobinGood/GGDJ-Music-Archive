@@ -181,7 +181,7 @@ function home() {
     [...map[k]].sort((a, b) => b.saves - a.saves).slice(0, 3).map(cover).join('') + '</div><b>' + esc(k) + '</b><span class="meta">' + map[k].length + (map[k].length === 1 ? ' playlist' : ' playlists') + '</span></button>').join('');
   const picked = state.sel != null ? D.filter(p => val(p, state.tab) === state.sel).sort(byDate) : [];
   app.innerHTML = BAR +
-    '<div class="wrap"><header class="top"><div><h1>GG-DJ Music Archive</h1><p class="intro">These are all the Spotify playlists I made since 2020.</p></div>' +
+    '<div class="wrap"><header class="top"><div><h1>GG-DJ Music Archive</h1><p class="intro">GG DJ is my name when I play music. These are all the Spotify playlists I made since 2020.</p></div>' +
     '<label class="search"><span>Search the archive</span><input id="q" type="search" value="' + esc(state.q) + '" placeholder="A title, a place, a word like sunset"></label></header>' +
     (q
       ? '<section><div class="listhead" style="margin-top:0"><h2>Search results</h2><div style="display:flex;gap:10px;align-items:center"><button class="btn" id="clear">Clear</button><span class="meta">' + found.length + ' of ' + D.length + '</span></div></div>' + (found.length ? '<div class="grid">' + found.map(card).join('') + '</div>' : '<p class="empty">Nothing found. Try another word.</p>') + '</section>'
